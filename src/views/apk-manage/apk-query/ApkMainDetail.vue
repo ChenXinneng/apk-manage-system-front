@@ -63,8 +63,13 @@
       </el-row>
       <el-row :gutter="20">
         <el-col :span="12">
-          <el-form-item label="APK下载URL">
+          <el-form-item label="APK下载链接">
             <el-input v-model="apkData.apk_download_url" :disabled="isDisabled" />
+          </el-form-item>
+        </el-col>
+        <el-col :span="12">
+          <el-form-item label="下载页面url">
+            <el-input v-model="apkData.download_page_url" :disabled="isDisabled" />
           </el-form-item>
         </el-col>
       </el-row>
@@ -92,7 +97,8 @@ export default {
         file_sha1: '',
         file_sha256: '',
         apk_location: '',
-        apk_download_url: ''
+        apk_download_url: '',
+        download_page_url: '',
       },
       isDisabled: false
     };
@@ -113,7 +119,8 @@ export default {
         file_sha1: '',
         file_sha256: '',
         apk_location: '',
-        apk_download_url: ''
+        apk_download_url: '',
+        download_page_url: '',
       };
     } else if (mode === 'edit') {
       this.isDisabled = false;

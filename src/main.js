@@ -47,3 +47,25 @@ for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
 app.mount('#app');
 
 
+// 创建loading遮罩层
+import { ElLoading } from 'element-plus'
+
+let loadingInstance = null
+
+const loading = (action = 'open', text = 'loading...') => {
+  if (action === 'open') {
+    loadingInstance = ElLoading.service({
+      lock: true,
+      text,
+      background: 'rgba(0, 0, 0, 0.7)',
+    })
+  } else if (action === 'close' && loadingInstance) {
+    loadingInstance.close()
+    loadingInstance = null
+  }
+}
+
+export default loading
+
+
+
